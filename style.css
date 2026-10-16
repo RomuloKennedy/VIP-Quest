@@ -1,0 +1,276 @@
+:root {
+    --navy: #101b3d;
+    --blue: #4263eb;
+    --gold: #ffd166;
+    --mint: #73e0bd;
+    --pink: #ff7b9c;
+    --cream: #fff8e8
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(145deg, #101b3d, #253b79);
+    color: var(--cream);
+    font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 18px
+}
+
+.game {
+    width: min(960px, 100%);
+    border: 4px solid #0b1025;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #192955;
+    box-shadow: 0 18px 60px #0008
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 18px;
+    background: #0d1631;
+    border-bottom: 3px solid #070d20
+}
+
+.logo {
+    font-weight: 1000;
+    letter-spacing: 1px;
+    color: var(--gold);
+    font-size: clamp(18px, 3vw, 28px)
+}
+
+.hud {
+    font-size: 13px;
+    color: #dbe4ff;
+    text-align: right
+}
+
+.screen {
+    position: relative;
+    min-height: 490px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(#7ed9f7 0 56%, #b2efc4 56% 72%, #4bba83 72%);
+    color: #17254b;
+    overflow: hidden
+}
+
+.cloud {
+    position: absolute;
+    font-size: 38px;
+    opacity: .65;
+    animation: float 7s ease-in-out infinite
+}
+
+.c1 {
+    top: 35px;
+    left: 8%
+}
+
+.c2 {
+    top: 72px;
+    right: 10%;
+    animation-delay: -3s
+}
+
+.sun {
+    position: absolute;
+    right: 8%;
+    top: 20px;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #ffdc71;
+    box-shadow: 0 0 0 10px #ffdc7133
+}
+
+.panel {
+    position: relative;
+    z-index: 2;
+    width: min(650px, 100%);
+    padding: 24px;
+    border: 4px solid #17254b;
+    border-radius: 14px;
+    background: #fff8e8;
+    box-shadow: 8px 8px 0 #17254b;
+    color: #17254b
+}
+
+.pixel {
+    font-size: 54px;
+    line-height: 1.2;
+    filter: drop-shadow(3px 3px 0 #17254b);
+    margin: 0 0 8px
+}
+
+.panel h1 {
+    margin: 4px 0 10px;
+    font-size: clamp(25px, 5vw, 42px);
+    line-height: 1.05
+}
+
+.panel p {
+    line-height: 1.55;
+    margin: 10px 0
+}
+
+.tag {
+    display: inline-block;
+    background: #17254b;
+    color: #fff8e8;
+    border-radius: 99px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .6px
+}
+
+.btns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px
+}
+
+.btn {
+    border: 3px solid #17254b;
+    border-radius: 9px;
+    padding: 11px 15px;
+    background: var(--gold);
+    color: #17254b;
+    font-weight: 850;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 #17254b;
+    font-size: 14px
+}
+
+.btn:hover {
+    transform: translateY(-2px)
+}
+
+.btn.secondary {
+    background: #dce7ff
+}
+
+.btn.good {
+    background: var(--mint)
+}
+
+.btn:focus {
+    outline: 3px solid white;
+    outline-offset: 3px
+}
+
+.progress {
+    height: 10px;
+    background: #0d1631
+}
+
+.bar {
+    height: 100%;
+    width: 0;
+    background: var(--gold);
+    transition: width .4s
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: #0d1631;
+    font-size: 12px;
+    color: #dbe4ff
+}
+
+.dialogue {
+    font-size: 17px;
+    font-weight: 650
+}
+
+.choices {
+    display: grid;
+    gap: 10px;
+    margin-top: 16px
+}
+
+.choices .btn {
+    text-align: left;
+    background: #e7edff
+}
+
+.choices .btn:hover {
+    background: #d2ddff
+}
+
+.choices .btn.correct {
+    background: #b5f4d9
+}
+
+.choices .btn.wrong {
+    background: #ffd1da
+}
+
+.hint {
+    font-size: 13px;
+    color: #536184
+}
+
+.character {
+    font-size: 48px
+}
+
+.ending {
+    font-size: 48px;
+    animation: fly 3s ease-in-out infinite
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(12px)
+    }
+}
+
+@keyframes fly {
+
+    0%,
+    100% {
+        transform: translateX(-10px) rotate(-4deg)
+    }
+
+    50% {
+        transform: translateX(15px) translateY(-12px) rotate(3deg)
+    }
+}
+
+@media(max-width:600px) {
+    .screen {
+        padding: 14px;
+        min-height: 520px
+    }
+
+    .panel {
+        padding: 18px
+    }
+
+    .top {
+        align-items: flex-start
+    }
+
+    .hud {
+        max-width: 45%
+    }
+}
